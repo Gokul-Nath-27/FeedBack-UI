@@ -1,11 +1,11 @@
 import CardStyle from "./CardStyle"
 import PropTypes from 'prop-types'
 import { FaTimes, FaEdit } from 'react-icons/fa'
-const FeedBackItem = ({ text, rating, id, handleDelete}) => {
+const FeedBackItem = ({ text, rating, id, handleDelete, darkmode}) => {
     return (
-        <CardStyle darkmode>
+        <CardStyle darkmode={darkmode}>
             <div className="font-medium absolute -top-3 -left-3 h-10  w-10 rounded-full bg-brightPink text-gray-700  flex justify-around items-center">{rating}</div>
-            <button 
+            <button
                 className="absolute top-3 right-3 text-red-800"
                 onClick = {() => handleDelete(id)}
             >

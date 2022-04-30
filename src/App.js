@@ -6,6 +6,7 @@ import Stats from './Components/Stats'
 import FeedBackForm from "./Components/FeedBackForm";
 function App() {
   const [feedBack, setFeedBack] = useState(feedBackData)
+  const [darkmode, setDarkmode] = useState(true)
 
   const handleDelete = (id) => {
     if(window.confirm("Do you want to delete?")){
@@ -16,12 +17,9 @@ function App() {
   return (
     <>
       <Header text="FeedBack UI"/>
-      <FeedBackForm/>
+      <FeedBackForm darkmode={darkmode}/>
       <Stats feedBack={feedBack}/>
-      <FeedBackList 
-        feedBack={feedBack}
-        handleDelete={handleDelete}
-        />
+      <FeedBackList feedBack={feedBack} handleDelete={handleDelete} darkmode={darkmode}/>
     </>
   );
 }

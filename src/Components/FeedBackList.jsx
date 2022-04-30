@@ -1,7 +1,7 @@
 import FeedBackItem from "./FeedBackItem"
 import PropTypes from 'prop-types'
 
-const FeedBackList = ({feedBack, handleDelete}) => {
+const FeedBackList = ({feedBack, handleDelete, darkmode}) => {
 
     return (!feedBack || feedBack.length === 0)? 
         <p className="text-center relative top-16">NO FEEDBACK YET!</p>
@@ -12,6 +12,7 @@ const FeedBackList = ({feedBack, handleDelete}) => {
                         text={text} 
                         rating={rating}
                         handleDelete={handleDelete}
+                        darkmode={darkmode}
                     />
             } ) 
 } 

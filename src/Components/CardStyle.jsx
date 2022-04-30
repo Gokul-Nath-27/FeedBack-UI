@@ -15,7 +15,7 @@ const CardStyle = ({children, darkmode}) => {
 }
 
 CardStyle.defaultProps = {
-    darkmode: false
+    darkmode: true
 }
 CardStyle.propTypes = {
     children: PropTypes.node.isRequired,
