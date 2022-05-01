@@ -14,9 +14,12 @@ function App() {
       setFeedBack(filteredItems)
     }
   }
+  const handleThemeMode = () => {
+    (darkmode)? setDarkmode(false): setDarkmode(true)
+  }
   return (
     <>
-      <Header text="FeedBack UI"/>
+      <Header text="FeedBack UI" darkmode={darkmode} handleThemeMode={handleThemeMode}/>
       <FeedBackForm darkmode={darkmode}/>
       <Stats feedBack={feedBack}/>
       <FeedBackList feedBack={feedBack} handleDelete={handleDelete} darkmode={darkmode}/>
