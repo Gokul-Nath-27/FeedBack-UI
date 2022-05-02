@@ -20,7 +20,7 @@ function App() {
   return (
     <>
       <Header text="FeedBack UI" darkmode={darkmode} handleThemeMode={handleThemeMode}/>
-      <FeedBackForm darkmode={darkmode}/>
+      <FeedBackForm darkmode={darkmode} feedBack={feedBack} setFeedBack={setFeedBack} />
       <Stats feedBack={feedBack}/>
       <FeedBackList feedBack={feedBack} handleDelete={handleDelete} darkmode={darkmode}/>
     </>
