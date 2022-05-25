@@ -1,9 +1,11 @@
 import CardStyle from "./CardStyle"
-import { useState, useEffect} from "react"
+import { useState, useEffect, useContext} from "react"
+import FeedbackContext from "../Context/FeedbackContext"
 import { v4 as uuidv4 } from 'uuid';
 import Button from './Button'
 import RatingRadioBtn from "./RatingRadioBtn"
-const FeedBackForm = ({darkmode, feedBack, setFeedBack}) => {
+const FeedBackForm = () => {
+    const {feedback, setFeedback, darkmode} = useContext(FeedbackContext)
     const [text, setText] = useState("")
     const [disabled, setDisabled] = useState(true)
     const [message, setMessage] = useState("")
@@ -29,8 +31,8 @@ const FeedBackForm = ({darkmode, feedBack, setFeedBack}) => {
         setselected(+e.target.innerText)
     }
     const addFeedback = (newfeedback) => {
-        const UpdatedFeedBack = [newfeedback, ...feedBack]
-        setFeedBack(UpdatedFeedBack)
+        const UpdatedFeedBack = [newfeedback, ...feedback]
+        setFeedback(UpdatedFeedBack)
         setText("")
         setselected(10)
     }

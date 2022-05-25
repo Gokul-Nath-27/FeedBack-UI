@@ -1,30 +1,20 @@
 import Header from "./Components/Header";
-import feedBackData from "./Data/data";
-import { useState } from "react";
 import FeedBackList from "./Components/FeedBackList";
 import Stats from './Components/Stats'
 import FeedBackForm from "./Components/FeedBackForm";
-function App() {
-  const [feedBack, setFeedBack] = useState(feedBackData)
-  const [darkmode, setDarkmode] = useState(true)
+import { FeedbackProvider } from "./Context/FeedbackContext";
 
-  const handleDelete = (id) => {
-    if(window.confirm("Do you want to delete?")){
-      const filteredItems = feedBack.filter( item => item.id !== id )
-      setFeedBack(filteredItems)
-    }
-  }
-  const handleThemeMode = () => {
-    (darkmode)? setDarkmode(false): setDarkmode(true)
-  }
+function App() {
+
+  
   return (
-    <>
-      <Header text="FeedBack UI" darkmode={darkmode} handleThemeMode={handleThemeMode}/>
-      <FeedBackForm darkmode={darkmode} feedBack={feedBack} setFeedBack={setFeedBack} />
-      <Stats feedBack={feedBack}/>
-      <FeedBackList feedBack={feedBack} handleDelete={handleDelete} darkmode={darkmode}/>
-    </>
-  );
+      <FeedbackProvider>
+        <Header />
+        <FeedBackForm />
+        <Stats />
+        <FeedBackList />
+      </FeedbackProvider>
+      );
 }
 
 export default App;

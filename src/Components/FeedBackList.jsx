@@ -1,15 +1,17 @@
 import FeedBackItem from "./FeedBackItem"
-import PropTypes from 'prop-types'
 import { motion, AnimatePresence } from "framer-motion"
+import { useContext } from "react"
+import FeedbackContext from "../Context/FeedbackContext"
 
-const FeedBackList = ({feedBack, handleDelete, darkmode}) => {
-    if (!feedBack || feedBack.length === 0) {
+const FeedBackList = () => {
+    const { feedback, handleDelete, darkmode} = useContext(FeedbackContext)
+    if (!feedback || feedback.length === 0) {
         return <p className="text-center relative top-16">NO FEEDBACK YET!</p>
     }
     return (
         <AnimatePresence> 
             { 
-                feedBack.map(({id, text, rating}) => {
+                feedback.map(({id, text, rating}) => {
                     return (
                         <motion.div
                             key={id}
@@ -33,17 +35,5 @@ const FeedBackList = ({feedBack, handleDelete, darkmode}) => {
     )
     
 } 
-
-FeedBackList.propTypes = {
-    feedBack: PropTypes.arrayOf(
-        PropTypes.shape(
-            {
-                id: PropTypes.number.isRequired,
-                text: PropTypes.string.isRequired,
-                rating: PropTypes.number.isRequired
-            }
-        )
-    )
-}
 
 export default FeedBackList
