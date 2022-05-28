@@ -5,9 +5,11 @@ import FeedbackContext from "../Context/FeedbackContext"
 
 const FeedBackList = () => {
     const { feedback, handleDelete, darkmode} = useContext(FeedbackContext)
+    
     if (!feedback || feedback.length === 0) {
         return <p className="text-center relative top-16">NO FEEDBACK YET!</p>
     }
+    
     return (
         <AnimatePresence> 
             { 

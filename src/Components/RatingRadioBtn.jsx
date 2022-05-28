@@ -1,6 +1,5 @@
-const RatingRadioBtn = ({ selected, setselected, handleRating }) => {
+const RatingRadioBtn = ({ selected,handleRating }) => {
     const ratings = [1,2,3,4,5,6,7,8,9,10]
-
     return (
         <ul className="flex w-4/5 m-auto my-6 justify-center flex-wrap">
             {ratings.map((rating) => {

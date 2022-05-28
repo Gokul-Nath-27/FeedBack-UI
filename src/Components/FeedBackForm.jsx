@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Button from './Button'
 import RatingRadioBtn from "./RatingRadioBtn"
 const FeedBackForm = () => {
-    const {feedback, setFeedback, darkmode} = useContext(FeedbackContext)
+    const {feedback, setFeedback, darkmode, feedbackEdit, updateEditedFeedback} = useContext(FeedbackContext)
     const [text, setText] = useState("")
     const [disabled, setDisabled] = useState(true)
     const [message, setMessage] = useState("")
@@ -23,6 +23,14 @@ const FeedBackForm = () => {
             setDisabled(false)
         }
     },[text])
+
+    useEffect(() => {
+        if(feedbackEdit.edit === true){
+            setDisabled(false)
+            setText(feedbackEdit.item.text)
+            setselected(feedbackEdit.item.rating)
+        }
+    }, [feedbackEdit])
 
     const handleTextChange = (e) => {
         setText(e.target.value)
@@ -44,7 +52,14 @@ const FeedBackForm = () => {
             rating: selected,
             id: uuidv4()
         }
-        addFeedback(newfeedback)
+        if(feedbackEdit.edit === true){
+            updateEditedFeedback(feedbackEdit.item.id, newfeedback)
+            setText("")
+            setselected(10)
+        }else{
+            addFeedback(newfeedback)
+        }
+
     }
     return (
         <CardStyle darkmode={darkmode}>

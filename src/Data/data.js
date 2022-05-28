@@ -6,7 +6,7 @@ const feedBackData = [
     },
     {
         id: 2,
-        rating:7.5,
+        rating:7,
         text: "This is 2nd feedback! Lorem ipsum dolor sit amet."
     },
     {

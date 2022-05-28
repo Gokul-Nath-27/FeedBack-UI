@@ -9,7 +9,7 @@ function App() {
   
   return (
       <FeedbackProvider>
-        <Header />
+        <Header text={"FeedBack UI"}/>
         <FeedBackForm />
         <Stats />
         <FeedBackList />
