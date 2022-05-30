@@ -6,7 +6,10 @@ const Stats = () => {
     return (
         <div className="flex justify-between container mx-auto max-w-screen-md my-4 font-bold">
             <p><span>{feedback.length}</span> Reviews</p>
-            <p>Average Rating:<span>{(feedback.map((item) => (item.rating)).reduce((acc, curVal) => ((acc + curVal)),0)/feedback.length).toFixed(2)}</span></p>
+            <p>Average Rating:<span>{
+                (!feedback || feedback.length === 0)? 0 :
+                (feedback.map((item) => (item.rating)).reduce((acc, curVal) => ((acc + curVal)),0)/feedback.length).toFixed(2)
+                }</span></p>
         </div>
     )
 }
